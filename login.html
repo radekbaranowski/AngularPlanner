@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="pageHeader text-center">
+        <h1> Please login</h1>
+    </div>
+    <hr>
+    <div class="row times">
+        <div class="text-center">
+
+            <form name="loginForm" ng-controller="loginController" ng-submit="login(credentials)" novalidate>
+                <label for="username">Username:</label>
+                <input type="text" id="username"
+                       ng-model="credentials.username"><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password"
+                       ng-model="credentials.password"><br>
+                <button type="submit" method="post">Login</button>
+            </form>
+login name {{ credentials.username }}
+        </div>
+
+    </div>
+
+</div>

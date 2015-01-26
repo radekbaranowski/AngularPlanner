@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="scheduleApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular&Firebase Scheduling</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.0/journal/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular-route.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+    <script src="firebaseApp.js"></script>
+
+</head>
+<body ng-controller="applicationController">
+<div class="text-right" >
+    <div ng-if="currentUser">Welcome, {{ currentUser.name }}</div>
+    <div ng-if="isAuthorized(userRoles.admin)">You're admin.</div>
+    <div ng-switch on="currentUser.role">
+        <div ng-switch-when="userRoles.admin">You're admin.</div>
+        <div ng-switch-when="userRoles.editor">You're editor.</div>
+        <div ng-switch-default>You're something else.</div>
+    </div>
+
+
+</div>
+
+<pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+<pre>$route.current.params = {{$route.current.params}}</pre>
+<pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+
+<div ng-if="false">
+
+    <p>
+        This will show until the application is bootstrapped.
+        Then, the ngIf directive will immediately rip it out of
+        the page.
+    </p>
+
+</div>
+
+<div ng-view></div>
+
+</body>
+</html>
